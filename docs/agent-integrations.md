@@ -1,6 +1,6 @@
 # Agent Integrations
 
-StatePilot follows the same integration shape used by local-first agent tools such as CodeGraph:
+StatePilot follows the same integration shape used by local-first agent tools:
 
 1. Ship a binary agents can launch.
 2. Expose a stdio MCP server from that binary.
