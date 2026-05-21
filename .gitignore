@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.turbo
+playwright-report
+test-results
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*

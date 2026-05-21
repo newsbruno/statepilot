@@ -1,0 +1,48 @@
+{
+  "name": "@statepilot/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "StatePilot CLI, MCP server, and agent installer.",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "statepilot": "./dist/bin/statepilot.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/bin/statepilot.ts --format esm,cjs --dts --splitting false --external playwright --external playwright-core --external chromium-bidi && node -e \"require('fs').chmodSync('dist/bin/statepilot.js', 0o755)\"",
+    "cli": "node dist/bin/statepilot.js",
+    "test": "vitest run --root ../..",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@statepilot/core": "workspace:*",
+    "@statepilot/memory": "workspace:*",
+    "@statepilot/playwright": "workspace:*",
+    "@statepilot/testing": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

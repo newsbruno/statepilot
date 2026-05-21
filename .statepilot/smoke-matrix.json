@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "promptVersion": "research-site-smoke-v4",
+  "updatedAt": "2026-05-21T01:29:58.105Z",
+  "criteria": [
+    "Agent calls statepilot_research_site.",
+    "Tool result status is success.",
+    "Tool result uses smokeMode true.",
+    "source.responseMode is compact.",
+    "articles contains at least one article check.",
+    "toolResult.smoke.status is pass.",
+    "Agent returns one complete parseable JSON envelope, raw or inside one JSON code block, with no placeholder summaries.",
+    "Agent does not read saved tool-result files.",
+    "Agent does not run shell, Python, cat, grep, jq, or external post-processing."
+  ],
+  "targets": {
+    "claude": {
+      "target": "claude",
+      "label": "Claude Code",
+      "status": "pass",
+      "lastRunAt": "2026-05-21T01:29:58.105Z",
+      "responseBytes": 4532,
+      "articlesCount": 5,
+      "selectedLinksCount": 5,
+      "failuresCount": 0,
+      "usedShell": false,
+      "readToolResultFiles": false,
+      "notes": "Real Claude Code MCP run passed with smokeMode true; returned complete parseable JSON inside one JSON code block."
+    },
+    "cursor": {
+      "target": "cursor",
+      "label": "Cursor",
+      "status": "not_run"
+    },
+    "codex": {
+      "target": "codex",
+      "label": "Codex CLI",
+      "status": "not_run"
+    },
+    "opencode": {
+      "target": "opencode",
+      "label": "opencode",
+      "status": "not_run"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "statepilot": {
+      "type": "stdio",
+      "command": "statepilot",
+      "args": [
+        "serve",
+        "--mcp"
+      ]
+    }
+  }
+}

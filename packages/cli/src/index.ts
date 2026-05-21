@@ -1,0 +1,12 @@
+export { runCli } from "./cli/main";
+export { installStatePilot, printTargetConfig, resolveTargets } from "./installer/install";
+export { serveMcp } from "./mcp/server";
+export { callStatePilotTool, STATEPILOT_MCP_TOOLS } from "./mcp/tools";
+export { createAgentInstructions } from "./agent/instructions";
+export { getAgentConfigStatuses } from "./doctor/agent-config";
+export { createAgentSmokeArguments, createAgentSmokePrompt, createAgentSmokePrompts, runAgentSmokeSuite } from "./smoke/agent-smoke";
+export { getProjectStatus, initProject } from "./project/project-config";
+export type { AgentTargetId, InstallLocation, InstallResult } from "./installer/types";
+export type { AgentConfigDoctorOptions, AgentConfigStatus, DoctorLocation } from "./doctor/agent-config";
+export type { AgentSmokeOptions, AgentSmokeTarget } from "./smoke/agent-smoke";
+export type { McpTool } from "./mcp/types";

@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "types": ["node"],
+    "paths": {
+      "@statepilot/action-model": ["./packages/action-model/src/index.ts"],
+      "@statepilot/browser-state": ["./packages/browser-state/src/index.ts"],
+      "@statepilot/cli": ["./packages/cli/src/index.ts"],
+      "@statepilot/core": ["./packages/core/src/index.ts"],
+      "@statepilot/memory": ["./packages/memory/src/index.ts"],
+      "@statepilot/playwright": ["./packages/adapters/playwright/src/index.ts"],
+      "@statepilot/predictor": ["./packages/predictor/src/index.ts"],
+      "@statepilot/testing": ["./packages/testing/src/index.ts"],
+      "@statepilot/validator": ["./packages/validator/src/index.ts"]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "packages/adapters/*"
+  - "examples/*"
+catalog:
+  playwright: ^1.52.0
+  typescript: ^5.8.3
+  vitest: ^3.1.4
+  zod: ^4.1.0

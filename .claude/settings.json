@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__statepilot__statepilot_status",
+      "mcp__statepilot__statepilot_run_task",
+      "mcp__statepilot__statepilot_research_site",
+      "mcp__statepilot__statepilot_init_project",
+      "mcp__statepilot__statepilot_agent_instructions"
+    ]
+  }
+}
