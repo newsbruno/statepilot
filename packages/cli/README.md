@@ -16,7 +16,7 @@ statepilot setup --target=all --location=global
 
 This installs the Playwright Chromium browser StatePilot needs and writes MCP config for Claude Code, Codex CLI, Cursor, and opencode.
 
-Restart your agent after setup.
+Restart the agent after setup.
 
 ## Commands
 

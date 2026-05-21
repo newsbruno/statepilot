@@ -136,7 +136,7 @@ Playwright, mock adapter, or future adapters
 
 ## Install
 
-For final users, the intended install path is the CLI:
+Install the CLI globally:
 
 ```bash
 npm install -g @statepilot/cli
@@ -153,7 +153,7 @@ statepilot setup --target=all --location=global
 - installs the Playwright Chromium browser StatePilot needs for real browser tasks;
 - writes MCP config and instruction files for the selected agent targets.
 
-Restart your agent after setup so it reloads the MCP server.
+Restart the agent after setup so it reloads the MCP server.
 
 To install only in the current project:
 
@@ -316,7 +316,7 @@ The workflow:
 
 This is the recommended path for agent research because the agent receives one structured result instead of many large tool-result files.
 
-Use `responseMode: "compact"` by default. Use `responseMode: "full"` only when you need raw article payloads.
+Use `responseMode: "compact"` by default. Use `responseMode: "full"` only for raw article payloads.
 
 `maxResponseBytes` caps the serialized response and reports reductions in `budget.reductions`.
 
@@ -422,23 +422,23 @@ await runtime.run({
 });
 ```
 
-Use the TypeScript API when you are embedding StatePilot inside your own worker, service, or agent runtime.
+Use the TypeScript API when embedding StatePilot inside a worker, service, or custom agent runtime.
 
-Use the CLI/MCP path when you want Claude Code, Codex CLI, Cursor, or opencode to call StatePilot as a tool.
+Use the CLI/MCP path when Claude Code, Codex CLI, Cursor, or opencode should call StatePilot as a tool.
 
-## Publishing to npm
+## Release Process
 
-Yes, the CLI must be published to npm for the final user command to work:
+Public npm distribution is centered on the CLI package:
 
 ```bash
 npm install -g @statepilot/cli
 ```
 
-In the current monorepo shape, `@statepilot/cli` depends on other `@statepilot/*` workspace packages. That means a public npm release should publish the workspace packages too, or the CLI package should be changed to fully bundle its internal StatePilot dependencies.
+The CLI depends on internal `@statepilot/*` packages. A public release publishes the workspace packages first, then `@statepilot/cli`. An alternative release strategy is to bundle the internal runtime packages into the CLI package and publish only the CLI.
 
-The clean release path is:
+Release checklist:
 
-1. Reserve or create the `@statepilot` npm scope.
+1. Confirm the `@statepilot` npm organization/scope exists and the publishing account has access.
 2. Add final package metadata: license, repository, homepage, keywords, and author.
 3. Build the workspace.
 4. Dry-run package publishing and inspect generated manifests.
@@ -470,15 +470,19 @@ pnpm smoke
 pnpm publish -r --dry-run
 ```
 
-When ready for a public scoped release:
+Publish command:
 
 ```bash
 pnpm publish -r --access public
 ```
 
-Before doing the real publish, inspect the packed `package.json` files and confirm that no published package contains unresolved `workspace:*` or `catalog:` dependency ranges.
+Before publishing, inspect the packed `package.json` files and confirm that no published package contains unresolved `workspace:*` or `catalog:` dependency ranges.
 
 ## Troubleshooting
+
+npm publish returns `404 Scope not found`:
+
+The `@statepilot` scope must exist on npm before scoped packages can be published. Create the `statepilot` npm organization, grant publish access to the release account, then rerun `pnpm publish -r --access public`. If the scope is not available, rename package scopes consistently before publishing.
 
 Missing Playwright browser:
 

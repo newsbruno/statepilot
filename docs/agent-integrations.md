@@ -81,7 +81,7 @@ statepilot smoke record --target=claude --status=pass --response-bytes=24000 --a
 statepilot smoke matrix
 ```
 
-The smoke matrix lets you compare Claude Code, Cursor, Codex CLI, and opencode with the same prompt and pass criteria.
+The smoke matrix compares Claude Code, Cursor, Codex CLI, and opencode with the same prompt and pass criteria.
 
 Use `statepilot_research_site` for multi-article research instead of manually reading persisted MCP output files or running shell/Python to merge them:
 
@@ -115,7 +115,7 @@ For page text, agents can call `statepilot_run_task` with a natural-language goa
 }
 ```
 
-StatePilot infers the URL from the goal, waits for useful browser content, then returns `result.text`, `result.links`, `result.url`, and `result.metadata`. You can still pass `input.url` and `extractText: true` explicitly when your agent prefers structured arguments.
+StatePilot infers the URL from the goal, waits for useful browser content, then returns `result.text`, `result.links`, `result.url`, and `result.metadata`. `input.url` and `extractText: true` can still be passed explicitly when structured arguments are preferred.
 
 For research workflows, use `result.links` as the source of truth for follow-up article URLs. Do not guess URLs from article titles.
 
